@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Sách - XP Books</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <div class="page-title-bar">
+    <div class="container">
+      <h1 class="fw-bold mb-0 fs-3">Blog Sách</h1>
+      <small class="text-muted">Review sách, gợi ý đọc sách và nhiều nội dung hữu ích</small>
+    </div>
+  </div>
+
+  <div class="container py-5">
+    <!-- Featured post -->
+    <div class="card border-0 shadow-sm rounded-3 overflow-hidden mb-5">
+      <div class="row g-0">
+        <div class="col-md-6">
+          <div class="overflow-hidden" style="height:300px">
+            <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=700&h=400&fit=crop"
+              class="w-100 h-100 blog-img" alt="Featured">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-body p-4 p-lg-5 d-flex flex-column h-100 justify-content-center">
+            <div class="d-flex gap-2 mb-2">
+              <span class="badge bg-light text-primary">Kỹ năng sống</span>
+              <span class="badge bg-warning text-dark">Nổi bật</span>
+            </div>
+            <h3 class="fw-bold">10 Cuốn Sách Kỹ Năng Sống Tốt Nhất Bạn Nên Đọc Năm 2026</h3>
+            <p class="text-muted">Những cuốn sách kỹ năng sống được chọn lọc kỹ càng, giúp bạn phát triển bản thân và
+              thành công hơn trong công việc lẫn cuộc sống cá nhân.</p>
+            <div class="text-muted small mb-3">
+              <i class="bi bi-person me-1"></i> Biên tập XP Books
+              <span class="mx-2">·</span>
+              <i class="bi bi-clock me-1"></i> 5 phút đọc
+              <span class="mx-2">·</span>
+              20/03/2026
+            </div>
+            <a href="#" class="btn btn-primary rounded-pill align-self-start">Đọc bài viết <i
+                class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex flex-wrap gap-2 mb-4 align-items-center">
+      <i class="bi bi-tag text-muted"></i>
+      <button class="btn btn-primary btn-sm rounded-pill cat-filter-btn" data-cat="all">Tất cả</button>
+      <button class="btn btn-outline-secondary btn-sm rounded-pill cat-filter-btn" data-cat="review">Review
+        sách</button>
+      <button class="btn btn-outline-secondary btn-sm rounded-pill cat-filter-btn" data-cat="skills">Kỹ năng
+        sống</button>
+      <button class="btn btn-outline-secondary btn-sm rounded-pill cat-filter-btn" data-cat="business">Kinh
+        doanh</button>
+      <button class="btn btn-outline-secondary btn-sm rounded-pill cat-filter-btn" data-cat="lifestyle">Phong cách
+        sống</button>
+      <button class="btn btn-outline-secondary btn-sm rounded-pill cat-filter-btn" data-cat="kids">Văn học thiếu
+        nhi</button>
+    </div>
+
+    <div class="row g-4" id="blog-grid">
+      <!-- Post 1 -->
+      <div class="col-md-6 col-lg-4 blog-item" data-cat="lifestyle">
+        <div class="card border-0 shadow-sm blog-card h-100">
+          <div class="overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=600&h=400&fit=crop"
+              class="blog-img" alt="">
+          </div>
+          <div class="card-body">
+            <span class="badge bg-light text-primary mb-2">Phong cách sống</span>
+            <h5 class="fw-bold mb-2">Tại Sao Đọc Sách Mỗi Ngày Thay Đổi Cuộc Sống Của Bạn</h5>
+            <p class="text-muted small">Khoa học đã chứng minh rằng đọc sách mỗi ngày không chỉ mở rộng kiến thức mà còn
+              cải thiện khả năng tư duy, giảm stress và tăng cường trí nhớ.</p>
+            <div class="text-muted small mt-3 d-flex justify-content-between">
+              <span><i class="bi bi-person"></i> Nguyễn Thu Hà &nbsp;<i class="bi bi-clock"></i> 7 phút</span>
+              <span>15/03/2026</span>
+            </div>
+          </div>
+          <a href="#" class="stretched-link"></a>
+        </div>
+      </div>
+      <!-- Post 2 -->
+      <div class="col-md-6 col-lg-4 blog-item" data-cat="review">
+        <div class="card border-0 shadow-sm blog-card h-100">
+          <div class="overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=600&h=400&fit=crop"
+              class="blog-img" alt="">
+          </div>
+          <div class="card-body">
+            <span class="badge bg-light text-primary mb-2">Review sách</span>
+            <h5 class="fw-bold mb-2">Hành Trình Đọc Sapiens - Cuốn Sách Thay Đổi Góc Nhìn Của Tôi</h5>
+            <p class="text-muted small">Sau khi đọc Sapiens của Yuval Noah Harari, tôi đã hoàn toàn thay đổi cách nhìn
+              về lịch sử loài người và tương lai của nền văn minh.</p>
+            <div class="text-muted small mt-3 d-flex justify-content-between">
+              <span><i class="bi bi-person"></i> Trần Minh Quân &nbsp;<i class="bi bi-clock"></i> 8 phút</span>
+              <span>10/03/2026</span>
+            </div>
+          </div>
+          <a href="#" class="stretched-link"></a>
+        </div>
+      </div>
+      <!-- Post 3 -->
+      <div class="col-md-6 col-lg-4 blog-item" data-cat="review">
+        <div class="card border-0 shadow-sm blog-card h-100">
+          <div class="overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&h=400&fit=crop"
+              class="blog-img" alt="">
+          </div>
+          <div class="card-body">
+            <span class="badge bg-light text-primary mb-2">Review sách</span>
+            <h5 class="fw-bold mb-2">Review: Atomic Habits - Thói Quen Nhỏ Thay Đổi Lớn</h5>
+            <p class="text-muted small">James Clear đã viết nên một kiệt tác về thói quen. Cuốn sách không chỉ nói về lý
+              thuyết mà đưa ra những bước thực hành cụ thể.</p>
+            <div class="text-muted small mt-3 d-flex justify-content-between">
+              <span><i class="bi bi-person"></i> Lê Thanh Tùng &nbsp;<i class="bi bi-clock"></i> 6 phút</span>
+              <span>05/03/2026</span>
+            </div>
+          </div>
+          <a href="#" class="stretched-link"></a>
+        </div>
+      </div>
+      <!-- Post 4 -->
+      <div class="col-md-6 col-lg-4 blog-item" data-cat="kids">
+        <div class="card border-0 shadow-sm blog-card h-100">
+          <div class="overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=600&h=400&fit=crop"
+              class="blog-img" alt="">
+          </div>
+          <div class="card-body">
+            <span class="badge bg-light text-primary mb-2">Văn học thiếu nhi</span>
+            <h5 class="fw-bold mb-2">Văn Học Thiếu Nhi Việt Nam - Những Tác Phẩm Kinh Điển Không Thể Bỏ Qua</h5>
+            <p class="text-muted small">Từ Dế Mèn Phiêu Lưu Ký đến Không Gia Đình, những cuốn sách thiếu nhi nên có
+              trong tủ sách của mỗi gia đình.</p>
+            <div class="text-muted small mt-3 d-flex justify-content-between">
+              <span><i class="bi bi-person"></i> Phạm Lan Anh &nbsp;<i class="bi bi-clock"></i> 5 phút</span>
+              <span>28/02/2026</span>
+            </div>
+          </div>
+          <a href="#" class="stretched-link"></a>
+        </div>
+      </div>
+      <!-- Post 5 -->
+      <div class="col-md-6 col-lg-4 blog-item" data-cat="business">
+        <div class="card border-0 shadow-sm blog-card h-100">
+          <div class="overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?w=600&h=400&fit=crop"
+              class="blog-img" alt="">
+          </div>
+          <div class="card-body">
+            <span class="badge bg-light text-primary mb-2">Kinh doanh</span>
+            <h5 class="fw-bold mb-2">Khởi Nghiệp Thông Minh Với Zero to One Của Peter Thiel</h5>
+            <p class="text-muted small">Peter Thiel chia sẻ triết lý khởi nghiệp độc đáo: thay vì cạnh tranh, hãy tạo ra
+              thứ gì đó hoàn toàn mới.</p>
+            <div class="text-muted small mt-3 d-flex justify-content-between">
+              <span><i class="bi bi-person"></i> Hoàng Đức Nam &nbsp;<i class="bi bi-clock"></i> 6 phút</span>
+              <span>20/02/2026</span>
+            </div>
+          </div>
+          <a href="#" class="stretched-link"></a>
+        </div>
+      </div>
+      <!-- Post 6 -->
+      <div class="col-md-6 col-lg-4 blog-item" data-cat="skills">
+        <div class="card border-0 shadow-sm blog-card h-100">
+          <div class="overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=600&h=400&fit=crop" class="blog-img"
+              alt="">
+          </div>
+          <div class="card-body">
+            <span class="badge bg-light text-primary mb-2">Kỹ năng sống</span>
+            <h5 class="fw-bold mb-2">Rich Dad Poor Dad: Bài Học Tài Chính Cho Mọi Lứa Tuổi</h5>
+            <p class="text-muted small">Robert Kiyosaki giải thích tại sao người giàu ngày càng giàu hơn và cách bạn có
+              thể thay đổi tư duy về tiền bạc ngay hôm nay.</p>
+            <div class="text-muted small mt-3 d-flex justify-content-between">
+              <span><i class="bi bi-person"></i> Vũ Thị Mai &nbsp;<i class="bi bi-clock"></i> 7 phút</span>
+              <span>12/02/2026</span>
+            </div>
+          </div>
+          <a href="#" class="stretched-link"></a>
+        </div>
+      </div>
+    </div>
+
+    <div id="empty-blog" class="text-center py-4 d-none">
+      <div style="font-size:2.5rem">📝</div>
+      <p class="text-muted">Không có bài viết nào trong danh mục này.</p>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../JavaScript/books.js"></script>
+  <script src="../JavaScript/cart.js"></script>
+  <script src="../JavaScript/components.js"></script>
+  <script>
+    renderNavbar('blog');
+    renderFooter();
+
+    document.querySelectorAll('.cat-filter-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.cat-filter-btn').forEach(b => b.className = 'btn btn-outline-secondary btn-sm rounded-pill cat-filter-btn');
+        this.className = 'btn btn-primary btn-sm rounded-pill cat-filter-btn';
+        const cat = this.dataset.cat;
+        let visible = 0;
+        document.querySelectorAll('.blog-item').forEach(item => {
+          const show = cat === 'all' || item.dataset.cat === cat;
+          item.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        document.getElementById('empty-blog').classList.toggle('d-none', visible > 0);
+      });
+    });
+  </script>
+</body>
+
+</html>

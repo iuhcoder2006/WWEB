@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi Tiết Sách - XP Books</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <div class="container py-4">
+    <nav aria-label="breadcrumb" class="mb-3">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html" class="text-primary">Trang chủ</a></li>
+        <li class="breadcrumb-item"><a href="shop.html" class="text-primary">Cửa hàng</a></li>
+        <li class="breadcrumb-item active" id="bc-title">Chi tiết sách</li>
+      </ol>
+    </nav>
+
+    <div id="book-content"></div>
+    <div id="related-section" class="mt-5 d-none">
+      <h4 class="fw-bold mb-4">Sách Liên Quan</h4>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4" id="related-books"></div>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../JavaScript/books.js"></script>
+  <script src="../JavaScript/cart.js"></script>
+  <script src="../JavaScript/components.js"></script>
+  <script>
+    renderNavbar('shop');
+    renderFooter();
+
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get('id'));
+    const book = BOOKS.find(b => b.id === id);
+
+    if (!book) {
+      document.getElementById('book-content').innerHTML = `
+      <div class="text-center py-5">
+        <div style="font-size:4rem">📚</div>
+        <h3>Không tìm thấy sách</h3>
+        <a href="shop.html" class="btn btn-primary mt-3">Quay lại cửa hàng</a>
+      </div>`;
+    } else {
+      document.title = `${book.title} - XP Books`;
+      document.getElementById('bc-title').textContent = book.title;
+      const discount = Math.round((1 - book.price / book.originalPrice) * 100);
+
+      document.getElementById('book-content').innerHTML = `
+      <div class="card border-0 shadow-sm rounded-3 overflow-hidden">
+        <div class="card-body p-4">
+          <div class="row g-4">
+            <div class="col-md-4 text-center">
+              <div class="position-relative d-inline-block">
+                <img src="${book.cover}" alt="${book.title}" class="img-fluid rounded-3 shadow" style="max-height:380px;object-fit:cover">
+                ${book.isNew ? '<span class="badge bg-success position-absolute top-0 start-0 m-2">MỚI</span>' : ''}
+                ${discount > 0 ? `<span class="badge bg-warning text-dark position-absolute top-0 end-0 m-2">-${discount}%</span>` : ''}
+              </div>
+              <div class="mt-4 d-flex gap-2 justify-content-center">
+                <button class="btn btn-primary px-4 rounded-pill" onclick='Cart.addItem(${JSON.stringify({ id: book.id, title: book.title, author: book.author, price: book.price, cover: book.cover })})'>
+                  <i class="bi bi-cart-plus"></i> Thêm vào giỏ
+                </button>
+                <button class="btn btn-outline-secondary rounded-pill" onclick='Cart.addItem(${JSON.stringify({ id: book.id, title: book.title, author: book.author, price: book.price, cover: book.cover })}); window.location.href="checkout.html"'>
+                  Mua ngay
+                </button>
+              </div>
+              <button class="btn btn-outline-secondary btn-sm mt-2 rounded-pill w-100">
+                <i class="bi bi-heart"></i> Thêm vào yêu thích
+              </button>
+            </div>
+            <div class="col-md-8">
+              <span class="badge bg-light text-primary mb-2">${book.category}</span>
+              <h2 class="fw-bold mb-1">${book.title}</h2>
+              <p class="text-muted mb-2">Tác giả: <strong>${book.author}</strong></p>
+              <div class="d-flex align-items-center gap-2 mb-3">
+                ${renderStars(book.rating)}
+                <strong>${book.rating}</strong>
+                <span class="text-muted small">(${book.reviews.toLocaleString()} đánh giá)</span>
+              </div>
+              <div class="mb-4">
+                <span class="fs-2 fw-bold text-primary">${formatPrice(book.price)}</span>
+                ${book.originalPrice > book.price ? `<span class="text-muted text-decoration-line-through ms-2 fs-5">${formatPrice(book.originalPrice)}</span>` : ''}
+              </div>
+              <p class="text-muted lh-lg mb-4">${book.description}</p>
+              <div class="row g-3 mb-4">
+                <div class="col-4">
+                  <div class="bg-light rounded-3 p-3 text-center">
+                    <i class="bi bi-book text-primary fs-4 d-block mb-1"></i>
+                    <small class="text-muted d-block">Số trang</small>
+                    <strong>${book.pages}</strong>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="bg-light rounded-3 p-3 text-center">
+                    <i class="bi bi-building text-primary fs-4 d-block mb-1"></i>
+                    <small class="text-muted d-block">Nhà xuất bản</small>
+                    <strong style="font-size:.8rem">${book.publisher.replace('NXB ', '')}</strong>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="bg-light rounded-3 p-3 text-center">
+                    <i class="bi bi-calendar text-primary fs-4 d-block mb-1"></i>
+                    <small class="text-muted d-block">Năm</small>
+                    <strong>${new Date(book.addedDate).getFullYear()}</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex gap-3 text-muted small">
+                <span><i class="bi bi-truck text-primary"></i> Miễn phí vận chuyển từ 150.000đ</span>
+                <span><i class="bi bi-shield-check text-primary"></i> Đảm bảo chính hãng</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>`;
+
+      const related = BOOKS.filter(b => b.category === book.category && b.id !== book.id).slice(0, 4);
+      if (related.length > 0) {
+        document.getElementById('related-section').classList.remove('d-none');
+        document.getElementById('related-books').innerHTML = related.map(b => renderBookCard(b)).join('');
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tài Khoản - XP Books</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <div class="d-flex align-items-center justify-content-center py-5 min-vh-100 bg-light">
+    <div style="width:100%;max-width:440px" class="px-3">
+      <div class="text-center mb-4">
+        <div class="rounded-circle bg-light d-inline-flex align-items-center justify-content-center mb-3"
+          style="width:70px;height:70px">
+          <i class="bi bi-person text-primary fs-2"></i>
+        </div>
+        <h2 class="fw-bold">Tài Khoản XP Books</h2>
+        <p class="text-muted small">Đăng nhập để trải nghiệm mua sắm tốt hơn</p>
+      </div>
+
+      <div class="card border-0 shadow-sm rounded-3 overflow-hidden">
+        <!-- Tabs -->
+        <div class="d-flex border-bottom">
+          <button class="account-tab active flex-fill" id="tab-login" onclick="switchTab('login')">Đăng Nhập</button>
+          <button class="account-tab flex-fill" id="tab-register" onclick="switchTab('register')">Đăng Ký</button>
+        </div>
+
+        <div id="success-alert" class="alert alert-success m-3 mb-0 d-flex align-items-center gap-2 py-2 d-none">
+          <i class="bi bi-check-circle-fill"></i>
+          <span id="success-msg"></span>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <div id="login-form" class="p-4">
+          <form onsubmit="handleLogin(event)">
+            <div class="mb-3">
+              <label class="form-label fw-medium">Email</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light border-end-0"><i class="bi bi-envelope text-muted"></i></span>
+                <input type="email" class="form-control border-start-0 ps-0" id="login-email"
+                  placeholder="email@example.com" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Mật khẩu</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light border-end-0"><i class="bi bi-lock text-muted"></i></span>
+                <input type="password" class="form-control border-start-0 border-end-0 ps-0" id="login-password"
+                  placeholder="••••••••" required>
+                <button class="btn btn-outline-secondary border-start-0" type="button"
+                  onclick="togglePwd('login-password', this)">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="form-check mb-0">
+                <input type="checkbox" class="form-check-input" id="remember">
+                <label class="form-check-label small" for="remember">Ghi nhớ đăng nhập</label>
+              </div>
+              <a href="#" class="small text-primary">Quên mật khẩu?</a>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 rounded-pill fw-bold py-2">Đăng Nhập</button>
+            <div class="position-relative my-4">
+              <hr>
+              <span class="position-absolute top-50 start-50 translate-middle bg-white px-3 text-muted small">hoặc tiếp
+                tục với</span>
+            </div>
+            <div class="row g-2">
+              <div class="col-6">
+                <button type="button"
+                  class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center gap-2">
+                  <svg width="18" height="18" viewBox="0 0 48 48">
+                    <path fill="#FFC107"
+                      d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8c-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C12.955 4 4 12.955 4 24s8.955 20 20 20s20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z" />
+                    <path fill="#FF3D00"
+                      d="m6.306 14.691 6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C16.318 4 9.656 8.337 6.306 14.691z" />
+                    <path fill="#4CAF50"
+                      d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z" />
+                    <path fill="#1976D2"
+                      d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z" />
+                  </svg>
+                  Google
+                </button>
+              </div>
+              <div class="col-6">
+                <button type="button"
+                  class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center gap-2">
+                  <i class="bi bi-facebook text-primary fs-5"></i> Facebook
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- REGISTER FORM -->
+        <div id="register-form" class="p-4 d-none">
+          <form onsubmit="handleRegister(event)">
+            <div class="mb-3">
+              <label class="form-label fw-medium">Họ và tên</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light border-end-0"><i class="bi bi-person text-muted"></i></span>
+                <input type="text" class="form-control border-start-0 ps-0" id="reg-name" placeholder="Nguyễn Văn A"
+                  required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Email</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light border-end-0"><i class="bi bi-envelope text-muted"></i></span>
+                <input type="email" class="form-control border-start-0 ps-0" id="reg-email"
+                  placeholder="email@example.com" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Số điện thoại</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light border-end-0"><i class="bi bi-telephone text-muted"></i></span>
+                <input type="tel" class="form-control border-start-0 ps-0" id="reg-phone" placeholder="0123 456 789">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Mật khẩu</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light border-end-0"><i class="bi bi-lock text-muted"></i></span>
+                <input type="password" class="form-control border-start-0 border-end-0 ps-0" id="reg-pwd"
+                  placeholder="Tối thiểu 6 ký tự" minlength="6" required>
+                <button class="btn btn-outline-secondary border-start-0" type="button"
+                  onclick="togglePwd('reg-pwd', this)">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-medium">Xác nhận mật khẩu</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light border-end-0"><i class="bi bi-lock text-muted"></i></span>
+                <input type="password" class="form-control border-start-0 ps-0" id="reg-confirm"
+                  placeholder="Nhập lại mật khẩu" required>
+              </div>
+            </div>
+            <div class="form-check mb-3">
+              <input type="checkbox" class="form-check-input" id="agree" required>
+              <label class="form-check-label small" for="agree">
+                Tôi đồng ý với <a href="#" class="text-primary">Điều khoản sử dụng</a> và <a href="#"
+                  class="text-primary">Chính sách bảo mật</a>
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 rounded-pill fw-bold py-2">Tạo Tài Khoản</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../JavaScript/books.js"></script>
+  <script src="../JavaScript/cart.js"></script>
+  <script src="../JavaScript/components.js"></script>
+  <script>
+    renderNavbar('');
+    renderFooter();
+
+    function switchTab(tab) {
+      document.getElementById('login-form').classList.toggle('d-none', tab !== 'login');
+      document.getElementById('register-form').classList.toggle('d-none', tab !== 'register');
+      document.getElementById('tab-login').classList.toggle('active', tab === 'login');
+      document.getElementById('tab-register').classList.toggle('active', tab === 'register');
+      document.getElementById('success-alert').classList.add('d-none');
+    }
+
+    function showSuccess(msg) {
+      const el = document.getElementById('success-alert');
+      document.getElementById('success-msg').textContent = msg;
+      el.classList.remove('d-none');
+      setTimeout(() => el.classList.add('d-none'), 4000);
+    }
+
+    function togglePwd(inputId, btn) {
+      const input = document.getElementById(inputId);
+      const isHidden = input.type === 'password';
+      input.type = isHidden ? 'text' : 'password';
+      btn.innerHTML = isHidden ? '<i class="bi bi-eye-slash"></i>' : '<i class="bi bi-eye"></i>';
+    }
+
+    function handleLogin(e) {
+      e.preventDefault();
+      showSuccess('Đăng nhập thành công! Chào mừng bạn trở lại XP Books.');
+    }
+
+    function handleRegister(e) {
+      e.preventDefault();
+      const pwd = document.getElementById('reg-pwd').value;
+      const confirm = document.getElementById('reg-confirm').value;
+      if (pwd !== confirm) { alert('Mật khẩu xác nhận không khớp!'); return; }
+      showSuccess('Tạo tài khoản thành công! Chào mừng bạn đến với XP Books.');
+    }
+  </script>
+</body>
+
+</html>
